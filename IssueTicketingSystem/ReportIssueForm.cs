@@ -46,7 +46,7 @@ namespace IssueTicketingSystem
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            Issue = new Issue(tbTitle.Text, tbEmail.Text, tbDescription.Text, parseSeverity());
+            Issue = new Issue(tbTitle.Text.ToLower(), tbEmail.Text, tbDescription.Text, parseSeverity());
         }
 
         private void tbEmail_Validating(object sender, CancelEventArgs e)

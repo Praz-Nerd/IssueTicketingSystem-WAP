@@ -30,6 +30,7 @@
         {
             this.btnReportIssue = new System.Windows.Forms.Button();
             this.btnDeveloperManagement = new System.Windows.Forms.Button();
+            this.btnResolveIssue = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnReportIssue
@@ -52,11 +53,22 @@
             this.btnDeveloperManagement.UseVisualStyleBackColor = true;
             this.btnDeveloperManagement.Click += new System.EventHandler(this.btnDeveloperManagement_Click);
             // 
+            // btnResolveIssue
+            // 
+            this.btnResolveIssue.Location = new System.Drawing.Point(99, 252);
+            this.btnResolveIssue.Name = "btnResolveIssue";
+            this.btnResolveIssue.Size = new System.Drawing.Size(149, 51);
+            this.btnResolveIssue.TabIndex = 2;
+            this.btnResolveIssue.Text = "Resolve Issue";
+            this.btnResolveIssue.UseVisualStyleBackColor = true;
+            this.btnResolveIssue.Click += new System.EventHandler(this.btnResolveIssue_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(409, 450);
+            this.Controls.Add(this.btnResolveIssue);
             this.Controls.Add(this.btnDeveloperManagement);
             this.Controls.Add(this.btnReportIssue);
             this.Name = "MainForm";
@@ -70,6 +82,7 @@
 
         private System.Windows.Forms.Button btnReportIssue;
         private System.Windows.Forms.Button btnDeveloperManagement;
+        private System.Windows.Forms.Button btnResolveIssue;
     }
 }
 

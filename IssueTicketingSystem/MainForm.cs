@@ -39,7 +39,14 @@ namespace IssueTicketingSystem
             DeveloperManagementForm form = new DeveloperManagementForm();
             form.developers = Developers;
             form.ShowDialog();
-            
+        }
+
+        private void btnResolveIssue_Click(object sender, EventArgs e)
+        {
+            ResolveIssueForm form = new ResolveIssueForm();
+            form.developers = Developers;
+            form.issues = Issues;
+            form.ShowDialog();
         }
     }
 }
