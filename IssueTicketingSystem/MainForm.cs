@@ -33,5 +33,13 @@ namespace IssueTicketingSystem
             if(form.ShowDialog() == DialogResult.OK)
                 Issues.Add(form.Issue);
         }
+
+        private void btnDeveloperManagement_Click(object sender, EventArgs e)
+        {
+            DeveloperManagementForm form = new DeveloperManagementForm();
+            form.developers = Developers;
+            form.ShowDialog();
+            
+        }
     }
 }

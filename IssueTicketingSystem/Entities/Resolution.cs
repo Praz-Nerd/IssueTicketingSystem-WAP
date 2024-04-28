@@ -9,11 +9,12 @@ namespace IssueTicketingSystem.Entities
     public class Resolution
     {
         private static int GlobalRCounter = 0;
-        private int ResolutionId { get; set; }
-        private string ResolutionDescription { get; set; }
-        private DateTime ResolutionDate { get; set; }
-        private Issue Issue { get; set; }
-        private Developer Developer { get; set; }
+        public int ResolutionId { get; set; }
+        public string ResolutionDescription { get; set; }
+        public DateTime ResolutionDate { get; set; }
+        public bool IsSolved { get; set; }
+        public Issue Issue { get; set; }
+        public Developer Developer { get; set; }
 
         public Resolution() 
         { 
@@ -21,11 +22,11 @@ namespace IssueTicketingSystem.Entities
             ResolutionDate = DateTime.Now; 
             Issue = null; Developer = null; 
         }
-        public Resolution(int resolutionId, string resolutionDescription, DateTime resolutionDate, Issue issue, Developer developer) :this()
+        public Resolution(string resolutionDescription, DateTime resolutionDate,bool solved, Issue issue, Developer developer) :this()
         {
-            ResolutionId = resolutionId;
             ResolutionDescription = resolutionDescription;
             ResolutionDate = resolutionDate;
+            IsSolved = solved;
             Issue = issue;
             Developer = developer;
         }

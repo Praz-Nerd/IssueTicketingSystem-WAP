@@ -6,24 +6,30 @@ using System.Threading.Tasks;
 
 namespace IssueTicketingSystem.Entities
 {
+    public enum DeveloperPosition
+    {
+        INTERN, ENTRY, MID, SENIOR
+    }
     public class Developer
     {
         private static int GlobalDCounter = 0;
-        private int DeveloperId { get; set; }
-        private string DeveloperName { get; set; }
-        private DateTime HireDate { get; set; }
-
+        public int DeveloperId { get; set; }
+        public string DeveloperName { get; set; }
+        public DateTime HireDate { get; set; }
+        public DeveloperPosition Position { get; set; }
+        public string Email { get; set; }
         public Developer() 
         {
             DeveloperId = GlobalDCounter++;
             HireDate = DateTime.Now; 
         }
 
-        public Developer(int developerId, string developerName, DateTime hireDate):this()
+        public Developer(string developerName, DateTime hireDate, string email ,  DeveloperPosition position) : this()
         {
-            DeveloperId = developerId;
             DeveloperName = developerName;
             HireDate = hireDate;
+            Position = position;
+            Email = email;
         }
     }
 }

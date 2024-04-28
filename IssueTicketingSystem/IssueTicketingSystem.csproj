@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddEditDeveloperForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEditDeveloperForm.Designer.cs">
+      <DependentUpon>AddEditDeveloperForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeveloperManagementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeveloperManagementForm.Designer.cs">
+      <DependentUpon>DeveloperManagementForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Developer.cs" />
     <Compile Include="Entities\Issue.cs" />
     <Compile Include="Entities\Resolution.cs" />
@@ -63,6 +75,12 @@
     <Compile Include="ReportIssueForm.Designer.cs">
       <DependentUpon>ReportIssueForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddEditDeveloperForm.resx">
+      <DependentUpon>AddEditDeveloperForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeveloperManagementForm.resx">
+      <DependentUpon>DeveloperManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

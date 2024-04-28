@@ -46,7 +46,7 @@ namespace IssueTicketingSystem
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            Issue = new Issue(tbEmail.Text, tbDescription.Text, parseSeverity());
+            Issue = new Issue(tbTitle.Text, tbEmail.Text, tbDescription.Text, parseSeverity());
         }
 
         private void tbEmail_Validating(object sender, CancelEventArgs e)
@@ -64,6 +64,15 @@ namespace IssueTicketingSystem
             {
                 e.Cancel = true;
                 errorProvider1.SetError(tbDescription, "Description cannot be empty");
+            }
+        }
+
+        private void tbTitle_Validating(object sender, CancelEventArgs e)
+        {
+            if (String.IsNullOrEmpty(tbTitle.Text))
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(tbTitle, "Description cannot be empty");
             }
         }
     }

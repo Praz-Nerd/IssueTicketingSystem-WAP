@@ -13,19 +13,22 @@ namespace IssueTicketingSystem.Entities
     public class Issue
     {
         private static int GlobalICounter = 0;
-        private int IssueId {  get; set; }
-        private DateTime IssueDate { get; set; }
-        private string Description { get; set; }
-        private string SenderEmail { get; set; }
-        private IssueSeverity Severity { get; set; }
+        public int IssueId {  get; set; }
+        public DateTime IssueDate { get; set; }
+
+        public string IssueTitle { get; set; }
+        public string Description { get; set; }
+        public string SenderEmail { get; set; }
+        public IssueSeverity Severity { get; set; }
 
         public Issue() 
         {
             IssueId = GlobalICounter++;
             IssueDate = DateTime.Now; 
         }
-        public Issue(string senderEmail, string description, IssueSeverity severity):this()
+        public Issue(string title, string senderEmail, string description, IssueSeverity severity):this()
         {
+            IssueTitle = title;
             Severity = severity;
             Description = description;
             SenderEmail = senderEmail;

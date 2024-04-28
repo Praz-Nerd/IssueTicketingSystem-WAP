@@ -38,12 +38,14 @@
             this.cbSeverity = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.tbTitle = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // tbEmail
             // 
-            this.tbEmail.Location = new System.Drawing.Point(106, 73);
+            this.tbEmail.Location = new System.Drawing.Point(106, 34);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(176, 20);
             this.tbEmail.TabIndex = 0;
@@ -61,7 +63,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(55, 73);
+            this.label1.Location = new System.Drawing.Point(55, 34);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 2;
@@ -124,11 +126,30 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // tbTitle
+            // 
+            this.tbTitle.Location = new System.Drawing.Point(106, 74);
+            this.tbTitle.Name = "tbTitle";
+            this.tbTitle.Size = new System.Drawing.Size(176, 20);
+            this.tbTitle.TabIndex = 8;
+            this.tbTitle.Validating += new System.ComponentModel.CancelEventHandler(this.tbTitle_Validating);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(40, 74);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(55, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Issue Title";
+            // 
             // ReportIssueForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(748, 548);
+            this.ClientSize = new System.Drawing.Size(566, 557);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.tbTitle);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cbSeverity);
             this.Controls.Add(this.btnCancel);
@@ -157,5 +178,7 @@
         private System.Windows.Forms.ComboBox cbSeverity;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox tbTitle;
     }
 }
