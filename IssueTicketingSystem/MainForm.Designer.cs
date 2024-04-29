@@ -31,6 +31,7 @@
             this.btnReportIssue = new System.Windows.Forms.Button();
             this.btnDeveloperManagement = new System.Windows.Forms.Button();
             this.btnResolveIssue = new System.Windows.Forms.Button();
+            this.ssMainForm = new System.Windows.Forms.StatusStrip();
             this.SuspendLayout();
             // 
             // btnReportIssue
@@ -63,11 +64,21 @@
             this.btnResolveIssue.UseVisualStyleBackColor = true;
             this.btnResolveIssue.Click += new System.EventHandler(this.btnResolveIssue_Click);
             // 
+            // ssMainForm
+            // 
+            this.ssMainForm.Location = new System.Drawing.Point(0, 428);
+            this.ssMainForm.Name = "ssMainForm";
+            this.ssMainForm.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.ssMainForm.Size = new System.Drawing.Size(409, 22);
+            this.ssMainForm.TabIndex = 3;
+            this.ssMainForm.Text = "Status";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(409, 450);
+            this.Controls.Add(this.ssMainForm);
             this.Controls.Add(this.btnResolveIssue);
             this.Controls.Add(this.btnDeveloperManagement);
             this.Controls.Add(this.btnReportIssue);
@@ -75,6 +86,7 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -83,6 +95,7 @@
         private System.Windows.Forms.Button btnReportIssue;
         private System.Windows.Forms.Button btnDeveloperManagement;
         private System.Windows.Forms.Button btnResolveIssue;
+        private System.Windows.Forms.StatusStrip ssMainForm;
     }
 }
 

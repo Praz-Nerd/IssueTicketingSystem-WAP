@@ -10,6 +10,8 @@ namespace IssueTicketingSystem.Entities
     {
         INTERN, ENTRY, MID, SENIOR
     }
+
+    [Serializable]
     public class Developer
     {
         private static int GlobalDCounter = 0;

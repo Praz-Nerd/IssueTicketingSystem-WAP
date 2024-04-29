@@ -21,17 +21,27 @@ namespace IssueTicketingSystem
             InitializeComponent();
         }
 
+        private void UpdateStatusStrip()
+        {
+            ssMainForm.Items.Clear();
+            ssMainForm.Items.Add(Issues.Count + " issues reported |");
+            ssMainForm.Items.Add(Resolutions.Count + " resolutions |");
+            ssMainForm.Items.Add(Developers.Count + " developers");
+        }
+
         private void MainForm_Load(object sender, EventArgs e)
         {
             Issues = new List<Issue>();
             Developers = new List<Developer>();
             Resolutions = new List<Resolution>();
+            UpdateStatusStrip();
         }
         private void btnReportIssue_Click(object sender, EventArgs e)
         {
             ReportIssueForm form = new ReportIssueForm();
             if(form.ShowDialog() == DialogResult.OK)
                 Issues.Add(form.Issue);
+            UpdateStatusStrip();
         }
 
         private void btnDeveloperManagement_Click(object sender, EventArgs e)
@@ -39,6 +49,9 @@ namespace IssueTicketingSystem
             DeveloperManagementForm form = new DeveloperManagementForm();
             form.developers = Developers;
             form.ShowDialog();
+            //send back the address, from deserialization
+            Developers = form.developers;
+            UpdateStatusStrip();
         }
 
         private void btnResolveIssue_Click(object sender, EventArgs e)
@@ -47,6 +60,7 @@ namespace IssueTicketingSystem
             form.developers = Developers;
             form.issues = Issues;
             form.ShowDialog();
+            UpdateStatusStrip();
         }
     }
 }

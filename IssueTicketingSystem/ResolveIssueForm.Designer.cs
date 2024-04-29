@@ -30,11 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             this.cbIssues = new System.Windows.Forms.ComboBox();
+            this.contextMenuStripIssues = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.cbDevelopers = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.contextMenuStripIssues = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStripIssues.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,6 +48,20 @@
             this.cbIssues.Size = new System.Drawing.Size(121, 21);
             this.cbIssues.TabIndex = 0;
             this.cbIssues.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.cbIssues_MouseDoubleClick);
+            // 
+            // contextMenuStripIssues
+            // 
+            this.contextMenuStripIssues.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.viewToolStripMenuItem});
+            this.contextMenuStripIssues.Name = "contextMenuStripIssues";
+            this.contextMenuStripIssues.Size = new System.Drawing.Size(100, 26);
+            // 
+            // viewToolStripMenuItem
+            // 
+            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
+            this.viewToolStripMenuItem.Text = "View";
+            this.viewToolStripMenuItem.Click += new System.EventHandler(this.viewToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -75,20 +89,6 @@
             this.label2.Size = new System.Drawing.Size(61, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Developers";
-            // 
-            // contextMenuStripIssues
-            // 
-            this.contextMenuStripIssues.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.viewToolStripMenuItem});
-            this.contextMenuStripIssues.Name = "contextMenuStripIssues";
-            this.contextMenuStripIssues.Size = new System.Drawing.Size(100, 26);
-            // 
-            // viewToolStripMenuItem
-            // 
-            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.viewToolStripMenuItem.Text = "View";
-            this.viewToolStripMenuItem.Click += new System.EventHandler(this.viewToolStripMenuItem_Click);
             // 
             // ResolveIssueForm
             // 
