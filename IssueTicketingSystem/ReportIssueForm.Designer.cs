@@ -104,10 +104,10 @@
             this.cbSeverity.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSeverity.FormattingEnabled = true;
             this.cbSeverity.Items.AddRange(new object[] {
-            "Low",
-            "Medium",
-            "High",
-            "Unknown"});
+            "low",
+            "medium",
+            "high",
+            "unknown"});
             this.cbSeverity.Location = new System.Drawing.Point(106, 306);
             this.cbSeverity.Name = "cbSeverity";
             this.cbSeverity.Size = new System.Drawing.Size(144, 21);

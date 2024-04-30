@@ -22,11 +22,11 @@ namespace IssueTicketingSystem
             {
                 switch (cbSeverity.SelectedItem.ToString())
                 {
-                    case "Low":
+                    case "low":
                         severity = IssueSeverity.LOW; break;
-                    case "Medium":
+                    case "medium":
                         severity = IssueSeverity.MEDIUM; break;
-                    case "High":
+                    case "high":
                         severity = IssueSeverity.HIGH; break;
                     default:
                         severity = IssueSeverity.UNKNOWN; break;
@@ -42,11 +42,28 @@ namespace IssueTicketingSystem
 
         private void ReportIssueForm_Load(object sender, EventArgs e)
         {
+            if(Issue != null)
+            {
+                tbTitle.Text = Issue.IssueTitle;
+                tbDescription.Text = Issue.Description;
+                tbEmail.Text = Issue.SenderEmail;
+                cbSeverity.SelectedItem = Issue.Severity.ToString().ToLower();
+            }
         }
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            Issue = new Issue(tbTitle.Text.ToLower(), tbEmail.Text, tbDescription.Text, parseSeverity());
+            if(Issue == null)
+            {
+                Issue = new Issue(tbTitle.Text.ToLower(), tbEmail.Text, tbDescription.Text, parseSeverity());
+            }
+            else
+            {
+                Issue.IssueTitle = tbTitle.Text;
+                Issue.Description = tbDescription.Text;
+                Issue.SenderEmail = tbEmail.Text;
+                Issue.Severity = parseSeverity();
+            }
         }
 
         private void tbEmail_Validating(object sender, CancelEventArgs e)

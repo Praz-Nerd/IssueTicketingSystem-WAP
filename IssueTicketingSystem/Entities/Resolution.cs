@@ -13,22 +13,20 @@ namespace IssueTicketingSystem.Entities
         public string ResolutionDescription { get; set; }
         public DateTime ResolutionDate { get; set; }
         public bool IsSolved { get; set; }
-        public Issue Issue { get; set; }
-        public Developer Developer { get; set; }
+        public int IssueId { get; set; }
+        public int DeveloperId { get; set; }
 
         public Resolution() 
         { 
             ResolutionId = GlobalRCounter++;
             ResolutionDate = DateTime.Now; 
-            Issue = null; Developer = null; 
         }
-        public Resolution(string resolutionDescription, DateTime resolutionDate,bool solved, Issue issue, Developer developer) :this()
+        public Resolution(string resolutionDescription, bool solved, int issue, int developer) :this()
         {
             ResolutionDescription = resolutionDescription;
-            ResolutionDate = resolutionDate;
             IsSolved = solved;
-            Issue = issue;
-            Developer = developer;
+            IssueId = issue;
+            DeveloperId = developer;
         }
     }
 }

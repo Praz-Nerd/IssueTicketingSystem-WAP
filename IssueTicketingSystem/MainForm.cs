@@ -59,7 +59,10 @@ namespace IssueTicketingSystem
             ResolveIssueForm form = new ResolveIssueForm();
             form.developers = Developers;
             form.issues = Issues;
-            form.ShowDialog();
+            if(form.ShowDialog() == DialogResult.OK )
+            {
+                Resolutions.Add(form.resolution);
+            }
             UpdateStatusStrip();
         }
     }
