@@ -182,7 +182,7 @@
             // 
             this.rbYes.AutoSize = true;
             this.rbYes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rbYes.Location = new System.Drawing.Point(453, 264);
+            this.rbYes.Location = new System.Drawing.Point(546, 341);
             this.rbYes.Name = "rbYes";
             this.rbYes.Size = new System.Drawing.Size(42, 17);
             this.rbYes.TabIndex = 12;
@@ -193,7 +193,7 @@
             // 
             this.rbNo.AutoSize = true;
             this.rbNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rbNo.Location = new System.Drawing.Point(453, 287);
+            this.rbNo.Location = new System.Drawing.Point(546, 364);
             this.rbNo.Name = "rbNo";
             this.rbNo.Size = new System.Drawing.Size(38, 17);
             this.rbNo.TabIndex = 13;
@@ -203,7 +203,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(450, 248);
+            this.label5.Location = new System.Drawing.Point(543, 325);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(74, 13);
             this.label5.TabIndex = 14;
