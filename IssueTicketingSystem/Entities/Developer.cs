@@ -14,7 +14,7 @@ namespace IssueTicketingSystem.Entities
     [Serializable]
     public class Developer
     {
-        private static int GlobalDCounter = 0;
+        public static int GlobalDCounter { get; set; } = 0;
         public int DeveloperId { get; set; }
         public string DeveloperName { get; set; }
         public DateTime HireDate { get; set; }
@@ -32,6 +32,16 @@ namespace IssueTicketingSystem.Entities
             HireDate = hireDate;
             Position = position;
             Email = email;
+        }
+
+        public static int getDeveloperIndex(int developerId, List<Developer> Developers)
+        {
+            for (int i = 0; i < Developers.Count; i++)
+            {
+                if (developerId == Developers[i].DeveloperId)
+                { return i; }
+            }
+            return -1;
         }
     }
 }

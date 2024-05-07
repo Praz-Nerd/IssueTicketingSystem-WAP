@@ -51,6 +51,16 @@ namespace IssueTicketingSystem
             {
                 cbDevelopers.Items.Add(developer.DeveloperName + " " + developer.Position.ToString());
             }
+            if(resolution != null)
+            {
+                int posIssue = Issue.getIssueIndex(resolution.IssueId, issues);
+                int posDeveloper = Developer.getDeveloperIndex(resolution.DeveloperId, developers);
+                tbSolution.Text = resolution.ResolutionDescription;
+                rbYes.Checked = resolution.IsSolved;
+                lvIssues.Items[posIssue].Selected = true;
+                cbDevelopers.SelectedIndex = posDeveloper;
+                writeTextBox();
+            }
         }
 
         private void cbIssues_MouseDoubleClick(object sender, MouseEventArgs e){}
@@ -119,7 +129,18 @@ namespace IssueTicketingSystem
         {
             var posIssue = lvIssues.SelectedIndices[0];
             var posDeveloper = cbDevelopers.SelectedIndex;
-            resolution = new Resolution(tbSolution.Text, rbYes.Checked, issues[posIssue].IssueId, developers[posDeveloper].DeveloperId);
+            if(resolution == null)
+            {
+                resolution = new Resolution(tbSolution.Text, rbYes.Checked, issues[posIssue].IssueId, developers[posDeveloper].DeveloperId);
+            }
+            else
+            {
+                resolution.ResolutionDescription = tbSolution.Text;
+                resolution.IsSolved = rbYes.Checked;
+                resolution.IssueId = issues[posIssue].IssueId;
+                resolution.DeveloperId = developers[posDeveloper].DeveloperId;
+            }
+            
         }
     }
 }

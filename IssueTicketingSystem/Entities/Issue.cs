@@ -12,7 +12,7 @@ namespace IssueTicketingSystem.Entities
     }
     public class Issue
     {
-        private static int GlobalICounter = 0;
+        public static int GlobalICounter { get; set; } = 0;
         public int IssueId {  get; set; }
         public DateTime IssueDate { get; set; }
 
@@ -32,6 +32,17 @@ namespace IssueTicketingSystem.Entities
             Severity = severity;
             Description = description;
             SenderEmail = senderEmail;
+        }
+        public static int getIssueIndex(int issueId, List<Issue> Issues)
+        {
+            for (int i = 0; i < Issues.Count; i++)
+            {
+                if (issueId == Issues[i].IssueId)
+                {
+                    return i;
+                }
+            }
+            return -1;
         }
     }
 }

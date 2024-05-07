@@ -8,7 +8,7 @@ namespace IssueTicketingSystem.Entities
 {
     public class Resolution
     {
-        private static int GlobalRCounter = 0;
+        public static int GlobalRCounter { get; set; } = 0;
         public int ResolutionId { get; set; }
         public string ResolutionDescription { get; set; }
         public DateTime ResolutionDate { get; set; }

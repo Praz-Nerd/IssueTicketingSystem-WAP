@@ -21,6 +21,27 @@ namespace IssueTicketingSystem
             InitializeComponent();
         }
 
+        
+
+        
+
+        private void DisplayResolutions()
+        {
+            lvResolutions.Items.Clear();
+
+            foreach (Resolution resolution in Resolutions)
+            {
+                int posIssue = Issue.getIssueIndex(resolution.IssueId, Issues);
+                int posDeveloper = Developer.getDeveloperIndex(resolution.DeveloperId, Developers);
+                ListViewItem item = new ListViewItem(Issues[posIssue].IssueTitle);
+                item.SubItems.Add(Issues[posIssue].Severity.ToString());
+                item.SubItems.Add(resolution.IsSolved.ToString());
+                item.SubItems.Add(Developers[posDeveloper].DeveloperName);
+                item.Tag = resolution;
+                lvResolutions.Items.Add(item);
+            }
+        }
+
         private void UpdateStatusStrip()
         {
             ssMainForm.Items.Clear();
@@ -35,6 +56,7 @@ namespace IssueTicketingSystem
             Developers = new List<Developer>();
             Resolutions = new List<Resolution>();
             UpdateStatusStrip();
+            DisplayResolutions();
         }
         private void btnReportIssue_Click(object sender, EventArgs e)
         {
@@ -64,6 +86,26 @@ namespace IssueTicketingSystem
                 Resolutions.Add(form.resolution);
             }
             UpdateStatusStrip();
+            DisplayResolutions();
+        }
+        //EDITING AND DELETING ON LIST VIEW
+        private void eToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (lvResolutions.SelectedItems.Count > 0)
+            {
+                ResolveIssueForm form = new ResolveIssueForm();
+                form.issues = Issues;
+                form.developers = Developers;
+                form.resolution = lvResolutions.SelectedItems[0].Tag as Resolution;
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    DisplayResolutions();
+                }
+            }
+            else
+            {
+                MessageBox.Show("No resolution selected", "Attention!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
