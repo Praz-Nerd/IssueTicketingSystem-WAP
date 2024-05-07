@@ -107,5 +107,23 @@ namespace IssueTicketingSystem
                 MessageBox.Show("No resolution selected", "Attention!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (lvResolutions.SelectedItems.Count > 0)
+            {
+                var result = MessageBox.Show("Are you sure you want to delete resolution?", "Attention!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    Resolutions.Remove(lvResolutions.SelectedItems[0].Tag as Resolution);
+                    DisplayResolutions();
+                    UpdateStatusStrip();
+                }
+            }
+            else
+            {
+                MessageBox.Show("No resolution selected", "Attention!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

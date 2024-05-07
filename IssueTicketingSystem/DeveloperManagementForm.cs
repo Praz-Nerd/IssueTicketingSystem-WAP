@@ -154,6 +154,7 @@ namespace IssueTicketingSystem
                     {
                         BinaryFormatter bf = new BinaryFormatter();
                         developers = bf.Deserialize(fs) as List<Developer>;
+                        Developer.updateId(developers);
                         showDevelopers();
                     }
                 }

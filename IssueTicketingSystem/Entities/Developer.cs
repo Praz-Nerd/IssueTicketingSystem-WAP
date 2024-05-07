@@ -43,5 +43,16 @@ namespace IssueTicketingSystem.Entities
             }
             return -1;
         }
+
+        public static void updateId(List<Developer> Developers)
+        {
+            int newCounter = 0;
+            foreach (Developer dev in Developers)
+            {
+                if(dev.DeveloperId >  newCounter)
+                { newCounter = dev.DeveloperId; }
+            }
+            GlobalDCounter = newCounter+1;
+        }
     }
 }
