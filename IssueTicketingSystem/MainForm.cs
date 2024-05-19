@@ -14,6 +14,9 @@ namespace IssueTicketingSystem
 {
     public partial class MainForm : Form
     {
+        //connection string
+        private const string DbConnection = "Data Source=TicketingDatabase.db";
+        //lists with internal representation of data
         public List<Issue> Issues;
         public List<Developer> Developers;
         public List<Resolution> Resolutions;
@@ -51,7 +54,7 @@ namespace IssueTicketingSystem
         private void MainForm_Load(object sender, EventArgs e)
         {
             Issues = new List<Issue>();
-            Developers = new List<Developer>();
+            Developers = Developer.ReadFromDB(DbConnection);
             Resolutions = new List<Resolution>();
             UpdateStatusStrip();
             DisplayResolutions();

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,6 +35,26 @@ namespace IssueTicketingSystem.Entities
             Email = email;
         }
 
+        public Developer(int id, string developerName, DateTime hireDate, string email, DeveloperPosition position) : this(developerName, hireDate, email, position) 
+        { DeveloperId = id; }
+
+
+        private static DeveloperPosition parsePosition(string posString)
+        {
+            DeveloperPosition position = DeveloperPosition.ENTRY;
+            if (posString != null)
+            {
+                switch (posString.ToLower())
+                {
+                    case "intern": position = DeveloperPosition.INTERN; break;
+                    case "entry": position = DeveloperPosition.ENTRY; break;
+                    case "mid": position = DeveloperPosition.MID; break;
+                    case "senior": position = DeveloperPosition.SENIOR; break;
+                }
+            }
+            return position;
+        }
+
         public static int getDeveloperIndex(int developerId, List<Developer> Developers)
         {
             for (int i = 0; i < Developers.Count; i++)
@@ -53,6 +74,76 @@ namespace IssueTicketingSystem.Entities
                 { newCounter = dev.DeveloperId; }
             }
             GlobalDCounter = newCounter+1;
+        }
+        //SQLite CRUD
+        public static void CreateDeveloper(string connectionString, Developer developer)
+        {
+            string query = "INSERT INTO Developers (DeveloperName,HireDate,Position,Email) VALUES " +
+                "(@DeveloperName,@HireDate,@Position,@Email);";
+
+            using(SQLiteConnection connection =  new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+                SQLiteCommand command = new SQLiteCommand(query, connection);
+                command.Parameters.AddWithValue("@DeveloperName", developer.DeveloperName);
+                command.Parameters.AddWithValue("@HireDate", developer.HireDate.ToString());
+                command.Parameters.AddWithValue("@Position", developer.Position.ToString());
+                command.Parameters.AddWithValue("@Email", developer.Email);
+
+                command.ExecuteNonQuery();
+            }
+        }
+        public static List<Developer> ReadFromDB(string connectionString)
+        {
+            List<Developer> list = new List<Developer>();
+            string query = "SELECT * FROM Developers;";
+
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+                SQLiteCommand command = new SQLiteCommand(query, connection);
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Developer developer = new Developer((int)(long)reader["DeveloperId"],
+                            (string)reader["DeveloperName"], DateTime.Parse((string)reader["HireDate"]), 
+                            (string)reader["Email"],
+                            parsePosition((string)reader["Position"]));
+                        list.Add(developer);
+                    }
+                }
+
+            }
+            return list;
+        }
+        public static void DeleteDeveloper(string connectionString, int id) 
+        {
+            string query = "DELETE FROM Developers WHERE DeveloperId=@DeveloperId;";
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+                SQLiteCommand command = new SQLiteCommand(query, connection);
+                command.Parameters.AddWithValue("@DeveloperId", id);
+                command.ExecuteNonQuery();
+            }
+        }
+        public static void UpdateDeveloper(string connectionString, Developer developer)
+        {
+            string query = "UPDATE Developers SET DeveloperName=@DeveloperName, HireDate=@HireDate, Position=@Position, Email=@Email " +
+                "WHERE DeveloperId=@DeveloperId;";
+
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+                SQLiteCommand command = new SQLiteCommand(query, connection);
+                command.Parameters.AddWithValue("@DeveloperName", developer.DeveloperName);
+                command.Parameters.AddWithValue("@HireDate", developer.HireDate.ToString());
+                command.Parameters.AddWithValue("@Position", developer.Position.ToString());
+                command.Parameters.AddWithValue("@Email", developer.Email);
+                command.Parameters.AddWithValue("@DeveloperId", developer.DeveloperId);
+                command.ExecuteNonQuery();
+            }
         }
     }
 }

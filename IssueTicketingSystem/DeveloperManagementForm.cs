@@ -15,6 +15,7 @@ namespace IssueTicketingSystem
 {
     public partial class DeveloperManagementForm : Form
     {
+        private const string DbConnection = "Data Source=TicketingDatabase.db";
         public List<Developer> developers;
 
         private void showDevelopers()
@@ -53,7 +54,9 @@ namespace IssueTicketingSystem
             form.developer = developer;
             if (form.ShowDialog() == DialogResult.OK)
             {
-                developers.Add(developer);
+                Developer.CreateDeveloper(DbConnection, developer);
+                //developers.Add(developer);
+                developers = Developer.ReadFromDB(DbConnection);
                 showDevelopers();
             }
         }
@@ -71,6 +74,8 @@ namespace IssueTicketingSystem
                 form.developer = lvDevelopers.SelectedItems[0].Tag as Developer;
                 if (form.ShowDialog() == DialogResult.OK)
                 {
+                    Developer.UpdateDeveloper(DbConnection, form.developer);
+                    developers = Developer.ReadFromDB(DbConnection);
                     showDevelopers();
                 }
             }
@@ -97,7 +102,10 @@ namespace IssueTicketingSystem
                 var result = MessageBox.Show("Are you sure you want to delete developer?", "Attention!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
-                    developers.Remove(lvDevelopers.SelectedItems[0].Tag as Developer);
+                    Developer developer = lvDevelopers.SelectedItems[0].Tag as Developer;
+                    Developer.DeleteDeveloper(DbConnection, developer.DeveloperId);
+                    developers = Developer.ReadFromDB(DbConnection);
+                    //developers.Remove(lvDevelopers.SelectedItems[0].Tag as Developer);
                     showDevelopers();
                 }
             }
