@@ -41,7 +41,11 @@
             this.cmsResolutions = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.eToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.generateReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsResolutions.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnReportIssue
@@ -123,21 +127,46 @@
             this.eToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.cmsResolutions.Name = "cmsResolutions";
-            this.cmsResolutions.Size = new System.Drawing.Size(181, 70);
+            this.cmsResolutions.Size = new System.Drawing.Size(108, 48);
             // 
             // eToolStripMenuItem
             // 
             this.eToolStripMenuItem.Name = "eToolStripMenuItem";
-            this.eToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.eToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.eToolStripMenuItem.Text = "Edit";
             this.eToolStripMenuItem.Click += new System.EventHandler(this.eToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(711, 24);
+            this.menuStrip1.TabIndex = 5;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.generateReportToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // generateReportToolStripMenuItem
+            // 
+            this.generateReportToolStripMenuItem.Name = "generateReportToolStripMenuItem";
+            this.generateReportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.generateReportToolStripMenuItem.Text = "Generate Report";
+            this.generateReportToolStripMenuItem.Click += new System.EventHandler(this.generateReportToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -146,13 +175,17 @@
             this.ClientSize = new System.Drawing.Size(711, 450);
             this.Controls.Add(this.lvResolutions);
             this.Controls.Add(this.ssMainForm);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.btnResolveIssue);
             this.Controls.Add(this.btnDeveloperManagement);
             this.Controls.Add(this.btnReportIssue);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.cmsResolutions.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -172,6 +205,9 @@
         private System.Windows.Forms.ContextMenuStrip cmsResolutions;
         private System.Windows.Forms.ToolStripMenuItem eToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem generateReportToolStripMenuItem;
     }
 }
 

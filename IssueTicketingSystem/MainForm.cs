@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,9 +22,6 @@ namespace IssueTicketingSystem
             InitializeComponent();
         }
 
-        
-
-        
 
         private void DisplayResolutions()
         {
@@ -123,6 +121,46 @@ namespace IssueTicketingSystem
             else
             {
                 MessageBox.Show("No resolution selected", "Attention!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        //GENERATING TXT REPORT
+        private string generateResolutionReport()
+        {
+            StringBuilder sb = new StringBuilder();
+            int k = 0;
+            foreach(Resolution resolution in Resolutions)
+            {
+                int posIssue = Issue.getIssueIndex(resolution.IssueId, Issues);
+                int posDeveloper = Developer.getDeveloperIndex(resolution.DeveloperId, Developers);
+
+                sb.AppendLine("Resolution No." + ++k + " at " + resolution.ResolutionDate);
+                sb.AppendLine("Issue Title: " + Issues[posIssue].IssueTitle);
+                sb.AppendLine("Issue Severity: " + Issues[posIssue].Severity.ToString());
+                sb.AppendLine("\nIssue Description\n" + Issues[posIssue].Description);
+                sb.AppendLine("\nIssue Solution\n" + resolution.ResolutionDescription);
+                sb.AppendLine("\nSolved? " + resolution.IsSolved.ToString());
+                sb.AppendLine("Developer Responsible: " + Developers[posDeveloper].DeveloperName);
+                sb.AppendLine("- - - - - - - - - - - -");
+            }
+            return sb.ToString();
+        }
+        private void generateReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(Resolutions.Count > 0)
+            {
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                if(saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    using(StreamWriter sw = File.CreateText(saveFileDialog.FileName))
+                    {
+                        sw.Write(generateResolutionReport());
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("No resolutions added", "Attention!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
