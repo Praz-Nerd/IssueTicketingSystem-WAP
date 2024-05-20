@@ -76,11 +76,36 @@ namespace IssueTicketingSystem.Entities
             GlobalDCounter = newCounter+1;
         }
         //SQLite CRUD
-        public static void CreateDeveloper(string connectionString, Developer developer)
+        public static void ReloadTable(string connectionString, List<Developer> Developers)
         {
-            string query = "INSERT INTO Developers (DeveloperName,HireDate,Position,Email) VALUES " +
+            //delete the whole table, then load all developers from the given list
+            //updates db with data from a list, keeps ids instead of using the autoincrement
+            string query = "DELETE FROM Developers;";
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+                SQLiteCommand command = new SQLiteCommand(query, connection);
+                command.ExecuteNonQuery();
+            }
+            foreach (var dev in Developers)
+            {
+                CreateDeveloper(connectionString, dev, true);
+            }
+        }
+        public static void CreateDeveloper(string connectionString, Developer developer, bool keepId = false)
+        {
+            string query;
+            if(keepId == false)
+            {
+                query = "INSERT INTO Developers (DeveloperName,HireDate,Position,Email) VALUES " +
                 "(@DeveloperName,@HireDate,@Position,@Email);";
-
+            }
+            else
+            {
+                query = "INSERT INTO Developers (DeveloperId,DeveloperName,HireDate,Position,Email) VALUES " +
+                "(@DeveloperId,@DeveloperName,@HireDate,@Position,@Email);";
+            }
+            
             using(SQLiteConnection connection =  new SQLiteConnection(connectionString))
             {
                 connection.Open();
@@ -89,7 +114,10 @@ namespace IssueTicketingSystem.Entities
                 command.Parameters.AddWithValue("@HireDate", developer.HireDate.ToString());
                 command.Parameters.AddWithValue("@Position", developer.Position.ToString());
                 command.Parameters.AddWithValue("@Email", developer.Email);
-
+                if(keepId)
+                {
+                    command.Parameters.AddWithValue("@DeveloperId", developer.DeveloperId);
+                }
                 command.ExecuteNonQuery();
             }
         }

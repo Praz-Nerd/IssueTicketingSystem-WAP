@@ -162,7 +162,9 @@ namespace IssueTicketingSystem
                     {
                         BinaryFormatter bf = new BinaryFormatter();
                         developers = bf.Deserialize(fs) as List<Developer>;
-                        Developer.updateId(developers);
+                        Developer.ReloadTable(DbConnection, developers);
+                        developers = Developer.ReadFromDB(DbConnection);
+                        //Developer.updateId(developers);
                         showDevelopers();
                     }
                 }

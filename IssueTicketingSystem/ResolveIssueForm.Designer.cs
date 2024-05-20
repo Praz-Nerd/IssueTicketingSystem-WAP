@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.contextMenuStripIssues = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tbDescription = new System.Windows.Forms.TextBox();
@@ -55,18 +54,10 @@
             // contextMenuStripIssues
             // 
             this.contextMenuStripIssues.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.viewToolStripMenuItem,
             this.editToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.contextMenuStripIssues.Name = "contextMenuStripIssues";
-            this.contextMenuStripIssues.Size = new System.Drawing.Size(108, 70);
-            // 
-            // viewToolStripMenuItem
-            // 
-            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
-            this.viewToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
-            this.viewToolStripMenuItem.Text = "View";
-            this.viewToolStripMenuItem.Click += new System.EventHandler(this.viewToolStripMenuItem_Click);
+            this.contextMenuStripIssues.Size = new System.Drawing.Size(108, 48);
             // 
             // editToolStripMenuItem
             // 
@@ -246,7 +237,6 @@
 
         #endregion
         private System.Windows.Forms.ContextMenuStrip contextMenuStripIssues;
-        private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
         private System.Windows.Forms.TextBox tbDescription;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;

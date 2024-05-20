@@ -35,13 +35,11 @@ namespace IssueTicketingSystem
 
         private void updateListView()
         {   
-            //lvIssues.Items.Clear();
             tscbIssues.Items.Clear();
             foreach (var issue in issues)
             {
-                //ListViewItem lvIssue = new ListViewItem(issue.IssueTitle + " " + issue.Severity.ToString());
                 tscbIssues.Items.Add(issue.IssueTitle + " " + issue.Severity.ToString());
-                //lvIssues.Items.Add(lvIssue);
+               
             }
         }
 
