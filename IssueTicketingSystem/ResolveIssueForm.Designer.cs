@@ -33,12 +33,8 @@
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lvIssues = new System.Windows.Forms.ListView();
             this.tbDescription = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.cbDevelopers = new System.Windows.Forms.ComboBox();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.tbSolution = new System.Windows.Forms.TextBox();
@@ -46,7 +42,14 @@
             this.rbYes = new System.Windows.Forms.RadioButton();
             this.rbNo = new System.Windows.Forms.RadioButton();
             this.label5 = new System.Windows.Forms.Label();
+            this.tsResolveIssue = new System.Windows.Forms.ToolStrip();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.tscbDevelopers = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
+            this.tscbIssues = new System.Windows.Forms.ToolStripComboBox();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.contextMenuStripIssues.SuspendLayout();
+            this.tsResolveIssue.SuspendLayout();
             this.SuspendLayout();
             // 
             // contextMenuStripIssues
@@ -79,65 +82,26 @@
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(47, 53);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Issues";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(367, 53);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(102, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Developer Assigned";
-            // 
-            // lvIssues
-            // 
-            this.lvIssues.ContextMenuStrip = this.contextMenuStripIssues;
-            this.lvIssues.FullRowSelect = true;
-            this.lvIssues.HideSelection = false;
-            this.lvIssues.Location = new System.Drawing.Point(90, 53);
-            this.lvIssues.Name = "lvIssues";
-            this.lvIssues.Size = new System.Drawing.Size(148, 132);
-            this.lvIssues.TabIndex = 4;
-            this.lvIssues.UseCompatibleStateImageBehavior = false;
-            this.lvIssues.View = System.Windows.Forms.View.List;
-            this.lvIssues.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lvIssues_MouseClick);
-            // 
             // tbDescription
             // 
             this.tbDescription.AcceptsReturn = true;
             this.tbDescription.AcceptsTab = true;
-            this.tbDescription.Location = new System.Drawing.Point(90, 191);
+            this.tbDescription.ContextMenuStrip = this.contextMenuStripIssues;
+            this.tbDescription.Location = new System.Drawing.Point(90, 98);
             this.tbDescription.Multiline = true;
             this.tbDescription.Name = "tbDescription";
             this.tbDescription.ReadOnly = true;
-            this.tbDescription.Size = new System.Drawing.Size(261, 90);
+            this.tbDescription.Size = new System.Drawing.Size(372, 153);
             this.tbDescription.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 194);
+            this.label3.Location = new System.Drawing.Point(24, 101);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(60, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "Description";
-            // 
-            // cbDevelopers
-            // 
-            this.cbDevelopers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbDevelopers.FormattingEnabled = true;
-            this.cbDevelopers.Location = new System.Drawing.Point(370, 69);
-            this.cbDevelopers.Name = "cbDevelopers";
-            this.cbDevelopers.Size = new System.Drawing.Size(138, 21);
-            this.cbDevelopers.TabIndex = 7;
             // 
             // btnOK
             // 
@@ -163,7 +127,7 @@
             // 
             // tbSolution
             // 
-            this.tbSolution.Location = new System.Drawing.Point(90, 325);
+            this.tbSolution.Location = new System.Drawing.Point(90, 296);
             this.tbSolution.Multiline = true;
             this.tbSolution.Name = "tbSolution";
             this.tbSolution.Size = new System.Drawing.Size(447, 134);
@@ -172,7 +136,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(39, 328);
+            this.label4.Location = new System.Drawing.Point(39, 299);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(45, 13);
             this.label4.TabIndex = 11;
@@ -182,7 +146,7 @@
             // 
             this.rbYes.AutoSize = true;
             this.rbYes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rbYes.Location = new System.Drawing.Point(546, 341);
+            this.rbYes.Location = new System.Drawing.Point(546, 312);
             this.rbYes.Name = "rbYes";
             this.rbYes.Size = new System.Drawing.Size(42, 17);
             this.rbYes.TabIndex = 12;
@@ -193,7 +157,7 @@
             // 
             this.rbNo.AutoSize = true;
             this.rbNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rbNo.Location = new System.Drawing.Point(546, 364);
+            this.rbNo.Location = new System.Drawing.Point(546, 335);
             this.rbNo.Name = "rbNo";
             this.rbNo.Size = new System.Drawing.Size(38, 17);
             this.rbNo.TabIndex = 13;
@@ -203,17 +167,63 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(543, 325);
+            this.label5.Location = new System.Drawing.Point(543, 296);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(74, 13);
             this.label5.TabIndex = 14;
             this.label5.Text = "Issue Solved?";
+            // 
+            // tsResolveIssue
+            // 
+            this.tsResolveIssue.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripLabel2,
+            this.tscbIssues,
+            this.toolStripSeparator1,
+            this.toolStripLabel1,
+            this.tscbDevelopers});
+            this.tsResolveIssue.Location = new System.Drawing.Point(0, 0);
+            this.tsResolveIssue.Name = "tsResolveIssue";
+            this.tsResolveIssue.Size = new System.Drawing.Size(785, 25);
+            this.tsResolveIssue.TabIndex = 15;
+            this.tsResolveIssue.Text = "toolStrip1";
+            // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(111, 22);
+            this.toolStripLabel1.Text = "Developer Assigned";
+            // 
+            // tscbDevelopers
+            // 
+            this.tscbDevelopers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tscbDevelopers.Name = "tscbDevelopers";
+            this.tscbDevelopers.Size = new System.Drawing.Size(121, 25);
+            // 
+            // toolStripLabel2
+            // 
+            this.toolStripLabel2.Name = "toolStripLabel2";
+            this.toolStripLabel2.Size = new System.Drawing.Size(38, 22);
+            this.toolStripLabel2.Text = "Issues";
+            // 
+            // tscbIssues
+            // 
+            this.tscbIssues.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tscbIssues.DropDownWidth = 121;
+            this.tscbIssues.Name = "tscbIssues";
+            this.tscbIssues.Size = new System.Drawing.Size(121, 25);
+            this.tscbIssues.SelectedIndexChanged += new System.EventHandler(this.tscbIssues_SelectedIndexChanged);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // ResolveIssueForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(785, 493);
+            this.Controls.Add(this.tsResolveIssue);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.rbNo);
             this.Controls.Add(this.rbYes);
@@ -221,32 +231,26 @@
             this.Controls.Add(this.tbSolution);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
-            this.Controls.Add(this.cbDevelopers);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbDescription);
-            this.Controls.Add(this.lvIssues);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Name = "ResolveIssueForm";
             this.Text = "ResolveIssueForm";
             this.Load += new System.EventHandler(this.ResolveIssueForm_Load);
             this.contextMenuStripIssues.ResumeLayout(false);
+            this.tsResolveIssue.ResumeLayout(false);
+            this.tsResolveIssue.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripIssues;
         private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
-        private System.Windows.Forms.ListView lvIssues;
         private System.Windows.Forms.TextBox tbDescription;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cbDevelopers;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.TextBox tbSolution;
@@ -254,5 +258,11 @@
         private System.Windows.Forms.RadioButton rbYes;
         private System.Windows.Forms.RadioButton rbNo;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ToolStrip tsResolveIssue;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
+        private System.Windows.Forms.ToolStripComboBox tscbDevelopers;
+        private System.Windows.Forms.ToolStripLabel toolStripLabel2;
+        private System.Windows.Forms.ToolStripComboBox tscbIssues;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }

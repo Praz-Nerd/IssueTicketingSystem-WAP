@@ -54,7 +54,7 @@
             this.btnReportIssue.Name = "btnReportIssue";
             this.btnReportIssue.Size = new System.Drawing.Size(149, 51);
             this.btnReportIssue.TabIndex = 0;
-            this.btnReportIssue.Text = "Report Issue";
+            this.btnReportIssue.Text = "&Report Issue";
             this.btnReportIssue.UseVisualStyleBackColor = true;
             this.btnReportIssue.Click += new System.EventHandler(this.btnReportIssue_Click);
             // 
@@ -64,7 +64,7 @@
             this.btnDeveloperManagement.Name = "btnDeveloperManagement";
             this.btnDeveloperManagement.Size = new System.Drawing.Size(149, 51);
             this.btnDeveloperManagement.TabIndex = 1;
-            this.btnDeveloperManagement.Text = "Developer Management";
+            this.btnDeveloperManagement.Text = "&Developer Management";
             this.btnDeveloperManagement.UseVisualStyleBackColor = true;
             this.btnDeveloperManagement.Click += new System.EventHandler(this.btnDeveloperManagement_Click);
             // 
@@ -74,7 +74,7 @@
             this.btnResolveIssue.Name = "btnResolveIssue";
             this.btnResolveIssue.Size = new System.Drawing.Size(149, 51);
             this.btnResolveIssue.TabIndex = 2;
-            this.btnResolveIssue.Text = "Resolve Issue";
+            this.btnResolveIssue.Text = "Resolve &Issue";
             this.btnResolveIssue.UseVisualStyleBackColor = true;
             this.btnResolveIssue.Click += new System.EventHandler(this.btnResolveIssue_Click);
             // 

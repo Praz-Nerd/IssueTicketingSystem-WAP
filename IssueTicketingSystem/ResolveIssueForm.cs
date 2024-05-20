@@ -23,7 +23,8 @@ namespace IssueTicketingSystem
 
         private void writeTextBox()
         {
-            var pos = lvIssues.SelectedIndices[0];
+            //var pos = lvIssues.SelectedIndices[0];
+            var pos = tscbIssues.SelectedIndex;
             string display = "Time: " + issues[pos].IssueDate.ToString() + Environment.NewLine +
                 "Sender: " + issues[pos].SenderEmail + Environment.NewLine +
                 "Title: " + issues[pos].IssueTitle + Environment.NewLine +
@@ -34,22 +35,26 @@ namespace IssueTicketingSystem
 
         private void updateListView()
         {   
-            lvIssues.Items.Clear();
+            //lvIssues.Items.Clear();
+            tscbIssues.Items.Clear();
             foreach (var issue in issues)
             {
-                ListViewItem lvIssue = new ListViewItem(issue.IssueTitle + " " + issue.Severity.ToString());
-                lvIssues.Items.Add(lvIssue);
+                //ListViewItem lvIssue = new ListViewItem(issue.IssueTitle + " " + issue.Severity.ToString());
+                tscbIssues.Items.Add(issue.IssueTitle + " " + issue.Severity.ToString());
+                //lvIssues.Items.Add(lvIssue);
             }
-            
         }
 
         private void ResolveIssueForm_Load(object sender, EventArgs e)
         {
             updateListView();
-            cbDevelopers.Items.Clear();
+            
+            tscbDevelopers.Items.Clear();
+            
             foreach (var developer in developers)
             {
-                cbDevelopers.Items.Add(developer.DeveloperName + " " + developer.Position.ToString());
+                tscbDevelopers.Items.Add(developer.DeveloperName + " " + developer.Position.ToString());
+                
             }
             if(resolution != null)
             {
@@ -57,8 +62,9 @@ namespace IssueTicketingSystem
                 int posDeveloper = Developer.getDeveloperIndex(resolution.DeveloperId, developers);
                 tbSolution.Text = resolution.ResolutionDescription;
                 rbYes.Checked = resolution.IsSolved;
-                lvIssues.Items[posIssue].Selected = true;
-                cbDevelopers.SelectedIndex = posDeveloper;
+                //lvIssues.Items[posIssue].Selected = true;
+                tscbDevelopers.SelectedIndex = posDeveloper;
+                tscbIssues.SelectedIndex = posIssue;
                 writeTextBox();
             }
         }
@@ -68,17 +74,21 @@ namespace IssueTicketingSystem
         //VIEWING ISSUES HERE
         private void viewToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(lvIssues.SelectedItems.Count > 0)
-            {
-                var pos = lvIssues.SelectedIndices[0];
-                MessageBox.Show(issues[pos].Description, issues[pos].IssueTitle, MessageBoxButtons.OK);
-            }
         }
 
         private void lvIssues_MouseClick(object sender, MouseEventArgs e)
         {
             tbDescription.Clear();
-            if (lvIssues.SelectedItems.Count > 0)
+            if (tscbIssues.SelectedIndex != -1 )
+            {
+                writeTextBox();
+            }
+        }
+
+        private void tscbIssues_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            tbDescription.Clear();
+            if (tscbIssues.SelectedIndex != -1)
             {
                 writeTextBox();
             }
@@ -86,9 +96,9 @@ namespace IssueTicketingSystem
         //EDITING ISSUES
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (lvIssues.SelectedItems.Count > 0)
+            if (tscbIssues.SelectedIndex != -1)
             {
-                var pos = lvIssues.SelectedIndices[0];
+                var pos = tscbIssues.SelectedIndex;
                 ReportIssueForm form = new ReportIssueForm();
                 form.Issue = issues[pos];
                 if(form.ShowDialog() == DialogResult.OK)
@@ -107,9 +117,9 @@ namespace IssueTicketingSystem
         //DELETING ISSUES
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (lvIssues.SelectedItems.Count > 0)
+            if (tscbIssues.SelectedIndex != -1)
             {
-                var pos = lvIssues.SelectedIndices[0];
+                var pos = tscbIssues.SelectedIndex;
                 var result = MessageBox.Show("Delete issue?", "Attention", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if(result == DialogResult.Yes)
                 {
@@ -127,8 +137,9 @@ namespace IssueTicketingSystem
         //SEND RESOLUTION BACK
         private void btnOK_Click(object sender, EventArgs e)
         {
-            var posIssue = lvIssues.SelectedIndices[0];
-            var posDeveloper = cbDevelopers.SelectedIndex;
+            //var posIssue = lvIssues.SelectedIndices[0];
+            var posIssue = tscbIssues.SelectedIndex;
+            var posDeveloper = tscbDevelopers.SelectedIndex;
             if(resolution == null)
             {
                 resolution = new Resolution(tbSolution.Text, rbYes.Checked, issues[posIssue].IssueId, developers[posDeveloper].DeveloperId);
@@ -142,5 +153,7 @@ namespace IssueTicketingSystem
             }
             
         }
+
+        
     }
 }
