@@ -170,5 +170,51 @@ namespace IssueTicketingSystem
                 }
             }
         }
+
+        //drag and drop here
+        private void DeveloperManagementForm_DragEnter(object sender, DragEventArgs e)
+        {
+            if(e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                e.Effect = DragDropEffects.Copy;
+            }
+            else
+            {
+                e.Effect= DragDropEffects.None;
+            }
+        }
+
+        private void DeveloperManagementForm_DragDrop(object sender, DragEventArgs e)
+        {
+            if(e.Data.GetDataPresent (DataFormats.FileDrop))
+            {
+                string[] filePaths = (string[])e.Data.GetData(DataFormats.FileDrop);
+                if(filePaths.Length > 0 )
+                {
+                    tbFilePath.Text = filePaths[0];
+                    if (developers.Count > 0)
+                    {
+                        var result = MessageBox.Show("Added developers will be lost. Continue?", "Attention!"
+                            , MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                        if (result == DialogResult.Yes)
+                        {
+                            developers.Clear();
+                        }
+                    }
+                    if (developers.Count == 0)
+                    {
+                        using (FileStream fs = File.OpenRead(tbFilePath.Text))
+                        {
+                            BinaryFormatter bf = new BinaryFormatter();
+                            developers = bf.Deserialize(fs) as List<Developer>;
+                            Developer.ReloadTable(DbConnection, developers);
+                            developers = Developer.ReadFromDB(DbConnection);
+                            //Developer.updateId(developers);
+                            showDevelopers();
+                        }
+                    }
+                }
+            }
+        }
     }
 }
