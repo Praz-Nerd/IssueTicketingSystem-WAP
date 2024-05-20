@@ -13,6 +13,8 @@ namespace IssueTicketingSystem
 {
     public partial class ResolveIssueForm : Form
     {
+        //connection string
+        private const string DbConnection = "Data Source=TicketingDatabase.db";
         public List<Issue> issues;
         public List<Developer> developers;
         public Resolution resolution;
@@ -101,6 +103,8 @@ namespace IssueTicketingSystem
                 form.Issue = issues[pos];
                 if(form.ShowDialog() == DialogResult.OK)
                 {
+                    Issue.UpdateIssue(DbConnection, form.Issue);
+                    issues = Issue.ReadFromDB(DbConnection);
                     writeTextBox();
                     updateListView();
                 }
@@ -121,7 +125,9 @@ namespace IssueTicketingSystem
                 var result = MessageBox.Show("Delete issue?", "Attention", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if(result == DialogResult.Yes)
                 {
-                    issues.Remove(issues[pos]);
+                    //issues.Remove(issues[pos]);
+                    Issue.DeleteIssue(DbConnection, issues[pos].IssueId);
+                    issues = Issue.ReadFromDB(DbConnection);
                     tbDescription.Clear();
                     updateListView();
                 }

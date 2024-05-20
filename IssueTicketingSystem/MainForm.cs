@@ -53,7 +53,7 @@ namespace IssueTicketingSystem
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            Issues = new List<Issue>();
+            Issues = Issue.ReadFromDB(DbConnection);
             Developers = Developer.ReadFromDB(DbConnection);
             Resolutions = new List<Resolution>();
             UpdateStatusStrip();
@@ -63,7 +63,12 @@ namespace IssueTicketingSystem
         {
             ReportIssueForm form = new ReportIssueForm();
             if(form.ShowDialog() == DialogResult.OK)
-                Issues.Add(form.Issue);
+            {
+                //Issues.Add(form.Issue);
+                Issue.CreateIssue(DbConnection, form.Issue);
+                Issues = Issue.ReadFromDB(DbConnection);
+            }
+                
             UpdateStatusStrip();
         }
 
@@ -86,6 +91,7 @@ namespace IssueTicketingSystem
             {
                 Resolutions.Add(form.resolution);
             }
+            Issues = form.issues;
             UpdateStatusStrip();
             DisplayResolutions();
         }
