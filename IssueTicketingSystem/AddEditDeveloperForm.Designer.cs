@@ -158,7 +158,7 @@
             this.Controls.Add(this.tbEmail);
             this.Controls.Add(this.tbName);
             this.Name = "AddEditDeveloperForm";
-            this.Text = "AddEditDeveloperForm";
+            this.Text = "Add Edit Developer";
             this.Load += new System.EventHandler(this.AddEditDeveloperForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);

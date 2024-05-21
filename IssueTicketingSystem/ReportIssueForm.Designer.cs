@@ -159,7 +159,7 @@
             this.Controls.Add(this.tbDescription);
             this.Controls.Add(this.tbEmail);
             this.Name = "ReportIssueForm";
-            this.Text = "ReportIssueForm";
+            this.Text = "Report Issue";
             this.Load += new System.EventHandler(this.ReportIssueForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);

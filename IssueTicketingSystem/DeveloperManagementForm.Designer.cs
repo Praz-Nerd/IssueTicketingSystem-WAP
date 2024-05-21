@@ -199,7 +199,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "DeveloperManagementForm";
-            this.Text = "DeveloperManagementForm";
+            this.Text = "Developer Management";
             this.Load += new System.EventHandler(this.DeveloperManagementForm_Load);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.DeveloperManagementForm_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.DeveloperManagementForm_DragEnter);

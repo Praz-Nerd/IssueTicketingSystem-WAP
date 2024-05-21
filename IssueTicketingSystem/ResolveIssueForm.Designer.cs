@@ -42,11 +42,11 @@
             this.rbNo = new System.Windows.Forms.RadioButton();
             this.label5 = new System.Windows.Forms.Label();
             this.tsResolveIssue = new System.Windows.Forms.ToolStrip();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.tscbDevelopers = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripLabel2 = new System.Windows.Forms.ToolStripLabel();
             this.tscbIssues = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.tscbDevelopers = new System.Windows.Forms.ToolStripComboBox();
             this.contextMenuStripIssues.SuspendLayout();
             this.tsResolveIssue.SuspendLayout();
             this.SuspendLayout();
@@ -178,18 +178,6 @@
             this.tsResolveIssue.TabIndex = 15;
             this.tsResolveIssue.Text = "toolStrip1";
             // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(111, 22);
-            this.toolStripLabel1.Text = "Developer Assigned";
-            // 
-            // tscbDevelopers
-            // 
-            this.tscbDevelopers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.tscbDevelopers.Name = "tscbDevelopers";
-            this.tscbDevelopers.Size = new System.Drawing.Size(121, 25);
-            // 
             // toolStripLabel2
             // 
             this.toolStripLabel2.Name = "toolStripLabel2";
@@ -209,6 +197,18 @@
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
+            // toolStripLabel1
+            // 
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(111, 22);
+            this.toolStripLabel1.Text = "Developer Assigned";
+            // 
+            // tscbDevelopers
+            // 
+            this.tscbDevelopers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tscbDevelopers.Name = "tscbDevelopers";
+            this.tscbDevelopers.Size = new System.Drawing.Size(121, 25);
+            // 
             // ResolveIssueForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -225,7 +225,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbDescription);
             this.Name = "ResolveIssueForm";
-            this.Text = "ResolveIssueForm";
+            this.Text = "Resolve Issue";
             this.Load += new System.EventHandler(this.ResolveIssueForm_Load);
             this.contextMenuStripIssues.ResumeLayout(false);
             this.tsResolveIssue.ResumeLayout(false);

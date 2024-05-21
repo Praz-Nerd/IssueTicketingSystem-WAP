@@ -1,26 +1,13 @@
-Resolution No.1
-Issue Title: okbok
-Issue Severity: LOW
+Resolution No.1 at 20/05/2024 19:51:46
+Issue Title: nu merge buton
+Issue Severity: MEDIUM
 
 Issue Description
-coolastufa
+AJUTOR
 
 Issue Solution
-19/05/2024 18:34:05
+ESTIM FRERASDSIAEW CLIMATOLOGIE
 
 Solved? True
-Developer Responsible: Uscatimea
-- - - - - - - - - - - -
-Resolution No.2
-Issue Title: coaie
-Issue Severity: HIGH
-
-Issue Description
-HAHAHAAH NU POST NU MAFAFAC
-
-Issue Solution
-19/05/2024 18:35:18
-
-Solved? False
 Developer Responsible: climmy
 - - - - - - - - - - - -
