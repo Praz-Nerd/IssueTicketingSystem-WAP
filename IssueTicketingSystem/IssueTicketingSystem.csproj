@@ -63,6 +63,12 @@
     <Compile Include="DeveloperManagementForm.Designer.cs">
       <DependentUpon>DeveloperManagementForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="EnhancedTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EnhancedTextBox.Designer.cs">
+      <DependentUpon>EnhancedTextBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Entities\Developer.cs" />
     <Compile Include="Entities\Issue.cs" />
     <Compile Include="Entities\Resolution.cs" />
@@ -91,6 +97,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DeveloperManagementForm.resx">
       <DependentUpon>DeveloperManagementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EnhancedTextBox.resx">
+      <DependentUpon>EnhancedTextBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

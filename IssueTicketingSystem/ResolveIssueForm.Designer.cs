@@ -36,7 +36,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.tbSolution = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.rbYes = new System.Windows.Forms.RadioButton();
             this.rbNo = new System.Windows.Forms.RadioButton();
@@ -47,6 +46,7 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.tscbDevelopers = new System.Windows.Forms.ToolStripComboBox();
+            this.etbSolution = new IssueTicketingSystem.EnhancedTextBox();
             this.contextMenuStripIssues.SuspendLayout();
             this.tsResolveIssue.SuspendLayout();
             this.SuspendLayout();
@@ -115,14 +115,6 @@
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseCompatibleTextRendering = true;
             this.btnCancel.UseVisualStyleBackColor = true;
-            // 
-            // tbSolution
-            // 
-            this.tbSolution.Location = new System.Drawing.Point(90, 296);
-            this.tbSolution.Multiline = true;
-            this.tbSolution.Name = "tbSolution";
-            this.tbSolution.Size = new System.Drawing.Size(447, 134);
-            this.tbSolution.TabIndex = 10;
             // 
             // label4
             // 
@@ -209,17 +201,25 @@
             this.tscbDevelopers.Name = "tscbDevelopers";
             this.tscbDevelopers.Size = new System.Drawing.Size(121, 25);
             // 
+            // etbSolution
+            // 
+            this.etbSolution.Location = new System.Drawing.Point(90, 299);
+            this.etbSolution.MaxCharacters = 100;
+            this.etbSolution.Name = "etbSolution";
+            this.etbSolution.Size = new System.Drawing.Size(383, 96);
+            this.etbSolution.TabIndex = 16;
+            // 
             // ResolveIssueForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(785, 493);
+            this.Controls.Add(this.etbSolution);
             this.Controls.Add(this.tsResolveIssue);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.rbNo);
             this.Controls.Add(this.rbYes);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.tbSolution);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.label3);
@@ -243,7 +243,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.TextBox tbSolution;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.RadioButton rbYes;
         private System.Windows.Forms.RadioButton rbNo;
@@ -254,5 +253,6 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel2;
         private System.Windows.Forms.ToolStripComboBox tscbIssues;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private EnhancedTextBox etbSolution;
     }
 }

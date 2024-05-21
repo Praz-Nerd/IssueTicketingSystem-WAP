@@ -60,7 +60,7 @@ namespace IssueTicketingSystem
             {
                 int posIssue = Issue.getIssueIndex(resolution.IssueId, issues);
                 int posDeveloper = Developer.getDeveloperIndex(resolution.DeveloperId, developers);
-                tbSolution.Text = resolution.ResolutionDescription;
+                etbSolution.setText(resolution.ResolutionDescription);
                 rbYes.Checked = resolution.IsSolved;
                 //lvIssues.Items[posIssue].Selected = true;
                 tscbDevelopers.SelectedIndex = posDeveloper;
@@ -146,11 +146,11 @@ namespace IssueTicketingSystem
             var posDeveloper = tscbDevelopers.SelectedIndex;
             if(resolution == null)
             {
-                resolution = new Resolution(tbSolution.Text, rbYes.Checked, issues[posIssue].IssueId, developers[posDeveloper].DeveloperId);
+                resolution = new Resolution(etbSolution.getText(), rbYes.Checked, issues[posIssue].IssueId, developers[posDeveloper].DeveloperId);
             }
             else
             {
-                resolution.ResolutionDescription = tbSolution.Text;
+                resolution.ResolutionDescription = etbSolution.getText();
                 resolution.IsSolved = rbYes.Checked;
                 resolution.IssueId = issues[posIssue].IssueId;
                 resolution.DeveloperId = developers[posDeveloper].DeveloperId;

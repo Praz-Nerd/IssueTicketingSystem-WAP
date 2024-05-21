@@ -37,6 +37,7 @@ namespace IssueTicketingSystem
                 ListViewItem item = new ListViewItem(Issues[posIssue].IssueTitle);
                 item.SubItems.Add(Issues[posIssue].Severity.ToString());
                 item.SubItems.Add(resolution.IsSolved.ToString());
+                item.SubItems.Add(resolution.ResolutionDescription);
                 item.SubItems.Add(Developers[posDeveloper].DeveloperName);
                 item.Tag = resolution;
                 lvResolutions.Items.Add(item);
@@ -62,7 +63,7 @@ namespace IssueTicketingSystem
         private void btnReportIssue_Click(object sender, EventArgs e)
         {
             ReportIssueForm form = new ReportIssueForm();
-            if(form.ShowDialog() == DialogResult.OK)
+            if(form.ShowDialog() == DialogResult.OK && form.Issue !=null)
             {
                 //Issues.Add(form.Issue);
                 Issue.CreateIssue(DbConnection, form.Issue);

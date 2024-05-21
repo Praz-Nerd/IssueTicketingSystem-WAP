@@ -44,6 +44,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generateReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.colSolution = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cmsResolutions.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -93,6 +94,7 @@
             this.colIssueTitle,
             this.colSeverity,
             this.colSolved,
+            this.colSolution,
             this.colDeveloperName});
             this.lvResolutions.ContextMenuStrip = this.cmsResolutions;
             this.lvResolutions.FullRowSelect = true;
@@ -168,6 +170,10 @@
             this.generateReportToolStripMenuItem.Text = "Generate Report";
             this.generateReportToolStripMenuItem.Click += new System.EventHandler(this.generateReportToolStripMenuItem_Click);
             // 
+            // colSolution
+            // 
+            this.colSolution.Text = "Solution";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -208,6 +214,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem generateReportToolStripMenuItem;
+        private System.Windows.Forms.ColumnHeader colSolution;
     }
 }
 
