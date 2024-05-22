@@ -37,6 +37,7 @@
             this.colIssueTitle = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colSeverity = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colSolved = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colSolution = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colDeveloperName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.cmsResolutions = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.eToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,7 +45,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generateReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.colSolution = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.developerHistograToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmsResolutions.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -119,6 +121,10 @@
             // 
             this.colSolved.Text = "Solved";
             // 
+            // colSolution
+            // 
+            this.colSolution.Text = "Solution";
+            // 
             // colDeveloperName
             // 
             this.colDeveloperName.Text = "Developer Name";
@@ -148,7 +154,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.viewToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(711, 24);
@@ -166,13 +173,24 @@
             // generateReportToolStripMenuItem
             // 
             this.generateReportToolStripMenuItem.Name = "generateReportToolStripMenuItem";
-            this.generateReportToolStripMenuItem.Size = new System.Drawing.Size(159, 22);
+            this.generateReportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.generateReportToolStripMenuItem.Text = "Generate Report";
             this.generateReportToolStripMenuItem.Click += new System.EventHandler(this.generateReportToolStripMenuItem_Click);
             // 
-            // colSolution
+            // viewToolStripMenuItem
             // 
-            this.colSolution.Text = "Solution";
+            this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.developerHistograToolStripMenuItem});
+            this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.viewToolStripMenuItem.Text = "View";
+            // 
+            // developerHistograToolStripMenuItem
+            // 
+            this.developerHistograToolStripMenuItem.Name = "developerHistograToolStripMenuItem";
+            this.developerHistograToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.developerHistograToolStripMenuItem.Text = "Developer Histogram";
+            this.developerHistograToolStripMenuItem.Click += new System.EventHandler(this.developerHistograToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -215,6 +233,8 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem generateReportToolStripMenuItem;
         private System.Windows.Forms.ColumnHeader colSolution;
+        private System.Windows.Forms.ToolStripMenuItem viewToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem developerHistograToolStripMenuItem;
     }
 }
 

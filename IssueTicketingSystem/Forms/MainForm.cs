@@ -1,4 +1,6 @@
 ﻿using IssueTicketingSystem.Entities;
+using IssueTicketingSystem.Forms;
+using IssueTicketingSystem.TSysGraphics;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -172,6 +175,27 @@ namespace IssueTicketingSystem
             {
                 MessageBox.Show("No resolutions added", "Attention!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void developerHistograToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BarChartValue[] data = new BarChartValue[Developers.Count];
+            int i = 0;
+            foreach(var dev in  Developers)
+            {
+                int k = 0;
+                foreach(var res in Resolutions) 
+                {
+                    if(res.DeveloperId == dev.DeveloperId)
+                    {
+                        k++;
+                    }
+                }
+                data[i++] = new BarChartValue(dev.DeveloperName, k);
+            }
+            GraphicsForm form = new GraphicsForm(data);
+            //form.data = data;
+            form.ShowDialog();
         }
     }
 }

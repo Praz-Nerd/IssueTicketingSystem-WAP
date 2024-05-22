@@ -191,7 +191,7 @@ namespace IssueTicketingSystem
                 string[] filePaths = (string[])e.Data.GetData(DataFormats.FileDrop);
                 if(filePaths.Length > 0 )
                 {
-                    tbFilePath.Text = filePaths[0];
+                    //tbFilePath.Text = filePaths[0];
                     if (developers.Count > 0)
                     {
                         var result = MessageBox.Show("Added developers will be lost. Continue?", "Attention!"
@@ -203,7 +203,7 @@ namespace IssueTicketingSystem
                     }
                     if (developers.Count == 0)
                     {
-                        using (FileStream fs = File.OpenRead(tbFilePath.Text))
+                        using (FileStream fs = File.OpenRead(filePaths[0]))
                         {
                             BinaryFormatter bf = new BinaryFormatter();
                             developers = bf.Deserialize(fs) as List<Developer>;
